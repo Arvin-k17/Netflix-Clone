@@ -1,0 +1,85 @@
+:host {
+  display: block;
+  width: 30px;
+  height: 30px;
+}
+
+.navicon {
+  width: 30px;
+  height: 35px;
+  padding: 5px;
+  position: absolute;
+  cursor: pointer;
+  -webkit-user-select: none;
+  /* Chrome all / Safari all */
+  -moz-user-select: none;
+  /* Firefox all */
+  -ms-user-select: none;
+  /* IE 10+ */
+  user-select: none;
+  /* Likely future */
+  box-sizing: border-box;
+}
+
+.navicon-bar {
+  display: block;
+  width: 30px;
+  height: 3px;
+  position: absolute;
+  transition: all .2s ease-out;
+}
+
+/* pseudo element의 경우, style binding이 불가능하므로
+    :before/:after를 사용하여 햄버거 아이콘을 작성하지 않았다. */
+.navicon-bar:first-child {
+  top: 5px;
+}
+
+.navicon-bar:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.navicon-bar:last-child {
+  bottom: 5px;
+}
+
+.nav-toggle:checked~.navicon>.navicon-bar:first-child {
+  transform: rotate(45deg);
+  top: 14px;
+}
+
+.nav-toggle:checked~.navicon>.navicon-bar:nth-child(2) {
+  background-color: transparent !important;
+}
+
+.nav-toggle:checked~.navicon>.navicon-bar:last-child {
+  transform: rotate(-45deg);
+  bottom: 13px;
+}
+
+.nav-toggle {
+  display: none;
+}
+
+.tab-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.25rem;
+  position: relative;
+}
+
+.tab-link::after {
+  content: '';
+  width: 0;
+  height: 2px;
+  background: #fff;
+  position: absolute;
+  left: 0;
+  bottom: -12px;
+  transition: 0.5s;
+}
+
+.tab-link:hover:after {
+  width: 100%;
+}

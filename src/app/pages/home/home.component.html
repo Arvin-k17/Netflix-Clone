@@ -1,0 +1,18 @@
+<div class="m-0 p-0">
+  <app-header [userImg]="userProfileImg" />
+  <!-- component -->
+  <app-banner [bannerTitle]="(bannerDetail$ | async)?.original_title"
+    [bannerOverview]="(bannerDetail$ | async)?.overview" [key]="(bannerVideo$ | async)?.results[0].key" />
+  <app-movie-carousel (passId)="recieveId($event)" [title]="'Popular on Netflix'" [videoContents]="movies" />
+
+  <app-movie-carousel (passId)="recieveId($event)" [title]="'Upcoming Movies'" [videoContents]="upcomingMovies" />
+  
+  <app-movie-carousel (passId)="recieveId($event)" [title]="'Popular Movies'" [videoContents]="popularMovies" />
+  
+  <!-- <app-movie-carousel (passId)="recieveId($event)" [title]="'Trending TV shows'" [videoContents]="tvShows" /> -->
+  
+  <app-movie-carousel (passId)="recieveId($event)" [title]="'Now Playing Movies'" [videoContents]="nowPlayingMovies" />
+
+  <!-- <app-movie-carousel [title]="'Top Rated Movies'" [videoContents]="topRatedMovies" /> -->
+
+</div>

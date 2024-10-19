@@ -1,0 +1,26 @@
+<input type="checkbox" class="nav-toggle  " id="nav-toggle" #checkbox>
+<label class="navicon hover:opacity-45" for="nav-toggle" (click)="senddata()">
+  <!-- (click)="this.toggled.emit(checkbox.checked)"> -->
+  <span *ngFor="let i of [1,2,3]" class="navicon-bar" [style.background-color]="color"></span>
+</label>
+<div *ngIf="checkbox.checked">
+  <div class="flex  w-64  bg-red-700 h-96 mt-12 rounded-lg">
+    <ul class="flex  flex-col gap-10 py-7 justify-center mx-auto px=2  z-20 ">
+      <li class=" text-neutral-200 hover:opacity-65 cursor-pointer text-xl  mx-5">
+        <a class="tab-link  cursor-pointer " routerLink="/home">Home</a>
+      </li>
+      <li class=" text-neutral-200  hover:opacity-65 cursor-pointer text-xl  mx-5">
+        <a class=" cursor-pointer tab-link " routerLink="/tv-shows">TV Shows</a>
+      </li>
+      <li class=" text-neutral-200  hover:opacity-65 cursor-pointer text-xl  mx-5">
+        <a class=" cursor-pointer tab-link" routerLink="/popular-movies">Popular Movies</a>
+      </li>
+      <li class=" text-neutral-200  hover:opacity-65 cursor-pointer text-xl  mx-5">
+        <a class=" cursor-pointer tab-link " routerLink="/upcoming-movies">Upcoming Movies</a>
+      </li>
+      <li class=" text-neutral-200  hover:opacity-65 cursor-pointer text-xl  mx-5">
+        <a class=" cursor-pointer tab-link" (click)="auth.signOut()" >Sign Out</a>
+      </li>
+    </ul>
+  </div>
+</div>
