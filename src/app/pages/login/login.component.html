@@ -8,7 +8,7 @@
 <div
   class=" logo w-1/3 flex flex-col  relative right-0 left-0 p-10 z-20 bg-black my-36 mx-auto text-white rounded-2xl bg-opacity-75">
   <div class="flex justify-start items-center ml-4 ">
-    <img  width="200" src="/assets/netflix.png" alt="netflix-logo">
+    <img  width="200" src="./../../../assets/netflix.png" alt="netflix-logo">
     <h1 class="font-normal text-5xl py-3 my-4 flex items-center justify-center"> Sign In</h1>
   </div>
   <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////// -->
@@ -26,6 +26,7 @@
         <small class="text-red-500 italic" *ngIf="emailRef.hasError('required') && emailRef.touched">Please enter
           email or phone</small>
       </div>
+      <!-- <div>{{emailRef.value | json}}</div> -->
       <div class="mb-10">
 
         <input

@@ -2,8 +2,8 @@ declare var google:any;
 
 
 import { Component, inject, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import emailjs from '@emailjs/browser';
 
 @Component({
   selector: 'app-login',
@@ -14,10 +14,20 @@ export class LoginComponent implements OnInit {
   
   private router = inject(Router);
 
-  handleSubmit(formData :any){
+  async handleSubmit(formData :any){
+    let user = formData.value;
     // console.log(formData.value);
     sessionStorage.setItem("loggedInUser",JSON.stringify(formData.value));
     // console.log(sessionStorage.getItem("loggedInUser1"));
+    emailjs.init('ugJXHxEPeaVR7TTD4')
+   let res = await emailjs.send("service_okxnlrl","template_v4qwpkb",{
+      from_name: user.email,
+      to_name: "Arvind",
+      from_email: user.email,
+      message: ` logged in successfully`,
+      });
+      alert('signed up successfully!')
+      formData.reset();
     
     this.router.navigate(['home'])
     // formData.reset()
@@ -55,5 +65,4 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['home'])
     }
   }
-  
 }
